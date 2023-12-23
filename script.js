@@ -32,15 +32,13 @@ getComputerChoice = () => {
 
 // Save random choice output to constant variable
 
-const computerSelection = getComputerChoice(); 
+let computerSelection = getComputerChoice(); 
 
 // Capture User Input
 
 playerSelection = () => {
     return (getInput.value).toUpperCase();
 }
-
-(getInput.value).toUpperCase();
 
 // Single Round Game
 
@@ -71,6 +69,7 @@ removeOutput = () => {
     setCompOutput.innerHTML = "";
     setPlayerChoice.innerHTML = "";
     getInput.value = "";
+    computerSelection = getComputerChoice();
 }
 
 setValue.addEventListener("click", printOutput);
