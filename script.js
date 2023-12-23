@@ -42,13 +42,11 @@ game = () => {
         return "You Win! Rock beats Scissors";
     } else if ((playerSelection()==="SCISSORS") && (getComputerChoice()==="PAPER")){
         return "You Win! Scissors beats Paper";
-    } else if ((playerSelection()==="ROCK") && (getComputerChoice()==="PAPER")){
-        return "You Lose! Paper beats Rock";
-    } else if ((playerSelection()==="SCISSORS") && (getComputerChoice()==="ROCK")){
-        return "You Lose! Rock beats Scissors";
-    } else if ((playerSelection()==="PAPER") && (getComputerChoice()==="SCISSORS")){
-        return "You Lose! Scissors beats Paper";
-    } else return "It's a tie! Play again";
+    } else if (playerSelection()===getComputerChoice()){
+        return "It's a tie! Play again";
+    } else return "You lose! " + getComputerChoice() + " beats " + playerSelection();
+
+// This code is not working, need to fix 
 
 }
 
