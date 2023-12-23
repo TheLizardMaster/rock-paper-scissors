@@ -6,6 +6,10 @@ const outputDestination = document.getElementById("para");
 
 const setValue = document.getElementById("submitValue");
 
+const setCompOutput = document.getElementById("compChoice");
+
+const setPlayerChoice = document.getElementById("playerChoice");
+
 // Generate Random Rock Paper Scissors choice for computer
 
 getComputerChoice = () => {
@@ -24,21 +28,45 @@ getComputerChoice = () => {
 
 // Capture User Input
 
-userChoice = () => {
+playerSelection = () => {
     return (getInput.value).toUpperCase();
+}
+
+// Single Round Game
+
+game = () => {
+
+    if ((playerSelection()==="PAPER") && (getComputerChoice()==="ROCK")){
+        return "You Win! Paper beats Rock";
+    } else if ((playerSelection()==="ROCK") && (getComputerChoice()==="SCISSORS")){
+        return "You Win! Rock beats Scissors";
+    } else if ((playerSelection()==="SCISSORS") && (getComputerChoice()==="PAPER")){
+        return "You Win! Scissors beats Paper";
+    } else if ((playerSelection()==="ROCK") && (getComputerChoice()==="PAPER")){
+        return "You Lose! Paper beats Rock";
+    } else if ((playerSelection()==="SCISSORS") && (getComputerChoice()==="ROCK")){
+        return "You Lose! Rock beats Scissors";
+    } else if ((playerSelection()==="PAPER") && (getComputerChoice()==="SCISSORS")){
+        return "You Lose! Scissors beats Paper";
+    } else return "It's a tie! Play again";
+
 }
 
 // Output JS to UI
 
 printOutput = () => {
-    outputDestination.innerHTML = getComputerChoice() + " " + userChoice();
+    outputDestination.innerHTML = game();
+    setCompOutput.innerHTML = "Computer choice: " + getComputerChoice();
+    setPlayerChoice.innerHTML = "Player choice: " + playerSelection();
 }
 
-removeOutput = () => {
-    outputDestination.innerHTML = "";
-    getInput.value = "";
-}
+// removeOutput = () => {
+//     outputDestination.innerHTML = "";
+//     setCompOutput.innerHTML = "";
+//     setPlayerChoice.innerHTML = "";
+//     getInput.value = "";
+// }
 
 setValue.addEventListener("click", printOutput);
 
-setValue.addEventListener("mouseleave", removeOutput);
+// setValue.addEventListener("mouseleave", removeOutput);

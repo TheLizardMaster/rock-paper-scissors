@@ -16,3 +16,9 @@
     color: white;
     background-color: blueviolet;
 }
+
+.outputStyle {
+    font-size: 22px;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
