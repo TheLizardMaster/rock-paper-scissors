@@ -10,6 +10,10 @@ const setCompOutput = document.getElementById("compChoice");
 
 const setPlayerChoice = document.getElementById("playerChoice");
 
+let compWins = 0;
+
+let playerWins = 0;
+
 // Generate Random Rock Paper Scissors choice for computer
 
 getComputerChoice = () => {
@@ -45,23 +49,29 @@ playerSelection = () => {
 playRound = (computer, player) => {
 
     if ((player()==="PAPER") && (computer==="ROCK")){
+        playerWins ++;
         return "You Win! Paper beats Rock";
     } else if ((player()==="ROCK") && (computer==="SCISSORS")){
+        playerWins ++;
         return "You Win! Rock beats Scissors";
     } else if ((player()==="SCISSORS") && (computer==="PAPER")){
+        playerWins ++;
         return "You Win! Scissors beats Paper";
     } else if ((player()===computer)){
         return "It's a tie! Play again";
-    } else return "You lose! " + computer + " beats " + player();
+    } else {
+        compWins ++;
+        return "You lose! " + computer + " beats " + player();
+    }
 
 }
 
 // Output JS to UI
 
 printOutput = () => {
-    setCompOutput.innerHTML = "Computer choice: " + computerSelection;
-    setPlayerChoice.innerHTML = "Player choice: " + playerSelection();
     outputDestination.innerHTML = playRound(computerSelection, playerSelection);
+    setCompOutput.innerHTML = "Computer chose: " + computerSelection + " and has won: " + compWins + " games";
+    setPlayerChoice.innerHTML = "Player chose: " + playerSelection() + " and has won: " + playerWins + " games";
 }
 
 removeOutput = () => {

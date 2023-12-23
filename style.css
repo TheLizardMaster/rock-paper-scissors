@@ -19,11 +19,22 @@
 
 .outputStyle {
     font-size: 22px;
-    margin: 10px;
+    margin: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .mainOutputStyle {
     margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.inputStyle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 40px;
+    width: 142px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-color: black;
 }
