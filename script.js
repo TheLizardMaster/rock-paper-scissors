@@ -13,24 +13,30 @@ getComputerChoice = () => {
     const randomVal = Math.floor(Math.random() * 3);
 
     if (randomVal === 0) {
-        return "Rock";
+        return "ROCK";
     } else if (randomVal === 1) {
-        return "Paper";
+        return "PAPER";
     } else if (randomVal === 2) {
-        return "Scissors";
+        return "SCISSORS";
     }
 
+}
+
+// Capture User Input
+
+userChoice = () => {
+    return (getInput.value).toUpperCase();
 }
 
 // Output JS to UI
 
 printOutput = () => {
-    outputDestination.innerHTML = getComputerChoice();
+    outputDestination.innerHTML = getComputerChoice() + " " + userChoice();
 }
 
 removeOutput = () => {
     outputDestination.innerHTML = "";
-    getInput.setValue = "";
+    getInput.value = "";
 }
 
 setValue.addEventListener("click", printOutput);
