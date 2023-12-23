@@ -14,17 +14,25 @@ const setPlayerChoice = document.getElementById("playerChoice");
 
 getComputerChoice = () => {
 
+    let choice;
+
     const randomVal = Math.floor(Math.random() * 3);
 
     if (randomVal === 0) {
-        return "ROCK";
+        choice = "ROCK";
     } else if (randomVal === 1) {
-        return "PAPER";
+        choice = "PAPER";
     } else if (randomVal === 2) {
-        return "SCISSORS";
+        choice = "SCISSORS";
     }
 
+    return choice;
+
 }
+
+// Save random choice output to constant variable
+
+const computerSelection = getComputerChoice(); 
 
 // Capture User Input
 
@@ -32,39 +40,39 @@ playerSelection = () => {
     return (getInput.value).toUpperCase();
 }
 
+(getInput.value).toUpperCase();
+
 // Single Round Game
 
-game = () => {
+playRound = (computer, player) => {
 
-    if ((playerSelection()==="PAPER") && (getComputerChoice()==="ROCK")){
+    if ((player()==="PAPER") && (computer==="ROCK")){
         return "You Win! Paper beats Rock";
-    } else if ((playerSelection()==="ROCK") && (getComputerChoice()==="SCISSORS")){
+    } else if ((player()==="ROCK") && (computer==="SCISSORS")){
         return "You Win! Rock beats Scissors";
-    } else if ((playerSelection()==="SCISSORS") && (getComputerChoice()==="PAPER")){
+    } else if ((player()==="SCISSORS") && (computer==="PAPER")){
         return "You Win! Scissors beats Paper";
-    } else if (playerSelection()===getComputerChoice()){
+    } else if ((player()===computer)){
         return "It's a tie! Play again";
-    } else return "You lose! " + getComputerChoice() + " beats " + playerSelection();
-
-// This code is not working, need to fix
+    } else return "You lose! " + computer + " beats " + player();
 
 }
 
 // Output JS to UI
 
 printOutput = () => {
-    outputDestination.innerHTML = game();
-    setCompOutput.innerHTML = "Computer choice: " + getComputerChoice();
+    setCompOutput.innerHTML = "Computer choice: " + computerSelection;
     setPlayerChoice.innerHTML = "Player choice: " + playerSelection();
+    outputDestination.innerHTML = playRound(computerSelection, playerSelection);
 }
 
-// removeOutput = () => {
-//     outputDestination.innerHTML = "";
-//     setCompOutput.innerHTML = "";
-//     setPlayerChoice.innerHTML = "";
-//     getInput.value = "";
-// }
+removeOutput = () => {
+    outputDestination.innerHTML = "";
+    setCompOutput.innerHTML = "";
+    setPlayerChoice.innerHTML = "";
+    getInput.value = "";
+}
 
 setValue.addEventListener("click", printOutput);
 
-// setValue.addEventListener("mouseleave", removeOutput);
+setValue.addEventListener("mouseleave", removeOutput);
