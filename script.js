@@ -46,7 +46,7 @@ game = () => {
         return "It's a tie! Play again";
     } else return "You lose! " + getComputerChoice() + " beats " + playerSelection();
 
-// This code is not working, need to fix 
+// This code is not working, need to fix
 
 }
 
