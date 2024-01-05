@@ -5,8 +5,7 @@ const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
 const outputDestination = document.getElementById("para");
-const setCompOutput = document.getElementById("compChoice");
-const setPlayerChoice = document.getElementById("playerChoice");
+const setScore = document.getElementById("score");
 
 // Win counters for each game
 
@@ -74,14 +73,11 @@ playRound = (computer, player) => {
 
 printOutput = () => {
     outputDestination.innerText = playRound(computerSelection, playerSelection);
-    setCompOutput.innerText = "Computer chose: " + computerSelection + " and has won: " + compWins + " games";
-    setPlayerChoice.innerText = "Player chose: " + playerSelection + " and has won: " + playerWins + " games";
+    setScore.innerText = `${playerWins} vs ${compWins}`;
 }
 
 removeOutput = () => {
     outputDestination.innerText = "";
-    setCompOutput.innerText = "";
-    setPlayerChoice.innerText = "";
     computerSelection = getComputerChoice();
 }
 

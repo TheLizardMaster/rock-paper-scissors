@@ -11,10 +11,12 @@
 .outputStyle {
     font-size: 22px;
     margin: 5px;
+    margin-bottom: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .mainOutputStyle {
+    font-size: 22px;
     margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
