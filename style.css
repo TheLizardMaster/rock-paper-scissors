@@ -8,15 +8,6 @@
     color: black;
 }
 
-.buttStyle {
-    border-radius: 5px;
-    height: 40px;
-    width: 149px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    background-color: blueviolet;
-}
-
 .outputStyle {
     font-size: 22px;
     margin: 5px;
@@ -28,13 +19,15 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.inputStyle {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 40px;
-    width: 142px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    background-color: rgb(0, 0, 0);
-    border-color: black;
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.imgStyle {
+    height: 100px;
+    border: solid;
+    margin: 5px;
+    padding: 0px;
 }
