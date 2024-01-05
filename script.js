@@ -1,14 +1,13 @@
-// Get UI Elements by ID
+// Get UI elements by ID
 
-const getInput = document.getElementById("inputChoice");
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
 
 const outputDestination = document.getElementById("para");
+const setScore = document.getElementById("score");
 
-const setValue = document.getElementById("submitValue");
-
-const setCompOutput = document.getElementById("compChoice");
-
-const setPlayerChoice = document.getElementById("playerChoice");
+// Win counters for each game
 
 let compWins = 0;
 
@@ -38,50 +37,59 @@ getComputerChoice = () => {
 
 let computerSelection = getComputerChoice(); 
 
+
 // Capture User Input
 
-playerSelection = () => {
-    return (getInput.value).toUpperCase();
-}
+// playerSelection = () => {
+//     return "ROCK";
+// }
 
-// Single Round Game
+let playerSelection = "";
+
+
+// Main game function
 
 playRound = (computer, player) => {
 
-    if ((player()==="PAPER") && (computer==="ROCK")){
+    if ((player==="PAPER") && (computer==="ROCK")){
         playerWins ++;
         return "You Win! Paper beats Rock";
-    } else if ((player()==="ROCK") && (computer==="SCISSORS")){
+    } else if ((player==="ROCK") && (computer==="SCISSORS")){
         playerWins ++;
         return "You Win! Rock beats Scissors";
-    } else if ((player()==="SCISSORS") && (computer==="PAPER")){
+    } else if ((player==="SCISSORS") && (computer==="PAPER")){
         playerWins ++;
         return "You Win! Scissors beats Paper";
-    } else if ((player()===computer)){
+    } else if ((player===computer)){
         return "It's a tie! Play again";
     } else {
         compWins ++;
-        return "You lose! " + computer + " beats " + player();
+        return "You lose! " + computer + " beats " + player;
     }
 
 }
 
-// Output JS to UI
+// Where and how to output JS to UI
 
 printOutput = () => {
     outputDestination.innerText = playRound(computerSelection, playerSelection);
-    setCompOutput.innerText = "Computer chose: " + computerSelection + " and has won: " + compWins + " games";
-    setPlayerChoice.innerText = "Player chose: " + playerSelection() + " and has won: " + playerWins + " games";
+    setScore.innerText = `${playerWins} vs ${compWins}`;
 }
 
 removeOutput = () => {
     outputDestination.innerText = "";
-    setCompOutput.innerText = "";
-    setPlayerChoice.innerText = "";
-    getInput.value = "";
     computerSelection = getComputerChoice();
 }
 
-setValue.addEventListener("click", printOutput);
+// Trigger output functions
 
-setValue.addEventListener("mouseleave", removeOutput);
+rock.addEventListener("click", () => playerSelection = "ROCK");
+paper.addEventListener("click", () => playerSelection = "PAPER");
+scissors.addEventListener("click", () => playerSelection = "SCISSORS");
+
+rock.addEventListener("click", printOutput);
+rock.addEventListener("mouseleave", removeOutput);
+paper.addEventListener("click", printOutput);
+paper.addEventListener("mouseleave", removeOutput);
+scissors.addEventListener("click", printOutput);
+scissors.addEventListener("mouseleave", removeOutput);
