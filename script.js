@@ -69,15 +69,15 @@ playRound = (computer, player) => {
 // Output JS to UI
 
 printOutput = () => {
-    outputDestination.innerHTML = playRound(computerSelection, playerSelection);
-    setCompOutput.innerHTML = "Computer chose: " + computerSelection + " and has won: " + compWins + " games";
-    setPlayerChoice.innerHTML = "Player chose: " + playerSelection() + " and has won: " + playerWins + " games";
+    outputDestination.innerText = playRound(computerSelection, playerSelection);
+    setCompOutput.innerText = "Computer chose: " + computerSelection + " and has won: " + compWins + " games";
+    setPlayerChoice.innerText = "Player chose: " + playerSelection() + " and has won: " + playerWins + " games";
 }
 
 removeOutput = () => {
-    outputDestination.innerHTML = "";
-    setCompOutput.innerHTML = "";
-    setPlayerChoice.innerHTML = "";
+    outputDestination.innerText = "";
+    setCompOutput.innerText = "";
+    setPlayerChoice.innerText = "";
     getInput.value = "";
     computerSelection = getComputerChoice();
 }
